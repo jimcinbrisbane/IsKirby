@@ -1,11 +1,8 @@
 import cv2
 import numpy as np
+#image location, file location
+def toRGB(inimg, outfile): 
+    img = cv2.imread(inimg, cv2.IMREAD_COLOR)
+    np.savetxt(outfile, img.reshape((3,-1)), fmt="%s", header=str(img.shape))
 
-img = cv2.imread('hac.png', cv2.IMREAD_COLOR)
-# one = np.fromstring(img, dtype=int)
-
-np.savetxt("foo.txt", img.reshape((3,-1)), fmt="%s", header=str(img.shape))
-
-# with open('rgb.txt', 'w') as f:
-#     for line in out_arr:
-#         f.write(line)
+toRGB("hac.png", "foo.txt")
