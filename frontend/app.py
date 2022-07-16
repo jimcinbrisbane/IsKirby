@@ -5,7 +5,6 @@ app = Flask(__name__)
 def index():
     if request.method == 'POST':
         file = request.files["fileToUpload"]
-        print(file)
         return render_template('index.html')
     elif request.method == 'GET':
         return render_template('index.html')
