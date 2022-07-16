@@ -6,6 +6,7 @@ from Crypto.Cipher import AES
 ### Encrypt message with generateCipher
 ### Decrypt cipher with decryptCipher (needs nonce, tag, ciphertext and
 ### random_data (hash)
+### HASH should be 256 bits!!!
 ### Add message to encrypt with updateMessage
 
 class CipherAES:
