@@ -4,15 +4,11 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        if request.form.get('action1') == 'VALUE1':
-            return redirect(url_for('confirmation'))
-        elif  request.form.get('action2') == 'VALUE2':
-            return redirect(url_for('about'))
-        else:
-            pass # unknown
+        file = request.files["fileToUpload"]
+        print(file)
+        return render_template('index.html')
     elif request.method == 'GET':
         return render_template('index.html')
-    return render_template("index.html")
 
 @app.route('/confirmation', methods=['GET', 'POST'])
 def confirmation():
