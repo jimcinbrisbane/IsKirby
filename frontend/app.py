@@ -4,12 +4,28 @@ from werkzeug.utils import secure_filename
 from pathlib import Path
 app = Flask(__name__)
 
+import cv2
+import numpy as np
+import random
+#image location, file location
+def toRGB(inimg): 
+    img = cv2.imread(inimg, cv2.IMREAD_COLOR)
+    np.savetxt('foo.txt', img.reshape((3,-1)), fmt="%s", header=str(img.shape))
+    
+
+
+def string_key():
+    with open('foo.txt') as f:
+        lines = f.readlines()
+
+    return str(lines)
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         file = request.files["fileToUpload"]
-        path = check_upload_file(file)
-        return render_template('index.html')
+        key = check_upload_file(file)
+        return render_template('key.html', key = key)
     elif request.method == 'GET':
         return render_template('index.html')
 
@@ -24,7 +40,9 @@ def check_upload_file(file):
           db_upload_path= secure_filename(filename)
           # save the file and return the dbupload path
           fp.save(str(BASE_DIR) + "/img/" + db_upload_path )
-          return db_upload_path
+          toRGB(str(BASE_DIR) + "/img/" + db_upload_path )
+          key = string_key()
+          return key
           
 @app.route('/confirmation', methods=['GET', 'POST'])
 def confirmation():
