@@ -3,17 +3,15 @@ import os
 from werkzeug.utils import secure_filename
 from pathlib import Path
 app = Flask(__name__)
-
+from helper import CipherAES
 import cv2
 import numpy as np
-import random
+import random 
 #image location, file location
 def toRGB(inimg): 
     img = cv2.imread(inimg, cv2.IMREAD_COLOR)
     np.savetxt('foo.txt', img.reshape((3,-1)), fmt="%s", header=str(img.shape))
     
-
-
 def string_key():
     with open('foo.txt') as f:
         lines = f.readlines()
@@ -24,7 +22,8 @@ def string_key():
 def index():
     if request.method == 'POST':
         file = request.files["fileToUpload"]
-        key = check_upload_file(file)
+        okey = check_upload_file(file)
+        key = CipherAES.get_hash_sha512(okey)
         return render_template('key.html', key = key)
     elif request.method == 'GET':
         return render_template('index.html')
