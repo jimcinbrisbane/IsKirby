@@ -2,20 +2,26 @@
 <html>
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+
 <style>
     main{
         display: inline;
         align-items: right;
     }
     body {
-        font-family: Tahoma, sans-serif;
         background-color:#96CEB4;
         padding: 0px 30px 0px 30px;
         text-align: left;
     }
     input {
-        font-family: Tahoma, sans-serif;
-        background-color: #FFAD60;
+        background-color: #D9534F;
         border: none;
         border-radius: 6px;
         color: #FFF4C6;
@@ -73,7 +79,7 @@
 <body>
 
 <div id = "main">
-<h2 style="color:#D9534F; text-shadow: 3px 3px 0px #FFF4C6; padding: 0px 0px 0px 0px;">BIG SOUND</h2>
+<h2 style="color:#D9534F; font-family: 'Karla', sans-serif; text-shadow: 3px 3px 0px #FFF4C6; padding: 0px 0px 0px 0px; margin:10px;">BIG SOUND</h2>
 </div>
 
 <form method="post" action = "http://localhost:5000/about">
@@ -81,8 +87,8 @@
 </form>
 
 <div style="background-color:#FFF4C6; padding: 10px 30% 10px 30px; border: none; border-radius: 6px;">
-<h1 style="color:#FFAD60;">Generate your token</h3>
-    <form style="padding: 5px 0px 30px 20px;" method="post" action = "http://localhost:5000/confirmation">
+<h1 style="color:#FFAD60; font-family: 'Karla', sans-serif; margin:10px;">Generate your token</h3>
+    <form style="padding: 5px 0px 30px 20px; font-family: 'Nunito', sans-serif;" method="post" action = "http://localhost:5000/confirmation">
         <input type="submit" class="gen" value="Generate" name="action1"/>
     </form>
 </div>
@@ -95,12 +101,12 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <h3 style="color:#FFAD60; font-family: 'Nunito', sans-serif; margin:10px;">Some text in the Modal..</h3>
     
-    <form action="/" method="post" enctype="multipart/form-data">
-        Select image to upload:
-        <input type="file" name="fileToUpload" id="fileToUpload">
-        <input type="submit" value="Upload Image" name="submit">
+    <form action="/" method="post" enctype="multipart/form-data" style="color:#FFAD60; font-family: 'Nunito', sans-serif;">
+        <h3 style="margin:10px;">Select image to upload:</h3>
+        <input type="file" name="fileToUpload" id="fileToUpload" style="color:#FFF4C6; font-family: 'Nunito', sans-serif;">
+        <input type="submit" value="Upload Image" name="submit" style="color:#FFF4C6; font-family: 'Nunito', sans-serif;">
     </form>
 
   </div>

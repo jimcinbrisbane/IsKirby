@@ -2,19 +2,27 @@
 <html>
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+
 <style>
     main{
         display: inline;
         align-items: right;
     }
     body {
-        font-family: Tahoma, sans-serif;
+        
         background-color:#96CEB4;
         padding: 0px 30px 0px 30px;
         text-align: left;
+        width: 1200px;
     }
     input {
-        font-family: Tahoma, sans-serif;
         background-color: #FFAD60;
         border: none;
         border-radius: 6px;
@@ -24,6 +32,14 @@
         font-weight: bold;
         display: inline-block;
     }
+    .inspiration {
+        float:left;
+    }
+    .info {
+        background-color:#FFF4C6;
+        border-radius: 6px;
+        padding: 30px;
+    }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://kit.fontawesome.com/156085f76e.js" crossorigin="anonymous"></script>
@@ -32,35 +48,46 @@
 <body>
 
 <div id = "main">
-<h2 style="color:#D9534F; text-shadow: 3px 3px 0px #FFF4C6; padding: 0px 0px 0px 0px;">BIG SOUND</h2>
+<h2 style="color:#D9534F; font-family: 'Karla', sans-serif; text-shadow: 3px 3px 0px #FFF4C6; padding: 0px 0px 0px 0px; margin:10px;">BIG SOUND</h2>
 </div>
 
 <form method="get" action = "http://localhost:5000">
     <button name="action1" class="fa-solid fa-backward-fast" style="font-size:36px; color: #FFF4C6; padding: 5px; background-color:#96CEB4; border:none;"></button>
 </form>
 
-<div style="background-color:#FFF4C6; padding: 10px 30% 10px 30px; border: none; border-radius: 6px;">
-<h1 style="color:#FFAD60;">About this project</h1>
+<div class="info">
 
-<h2 style="color:#D9534F;">Technology Used</h2>
+<h1 style="color:#FFAD60; font-family: 'Karla', sans-serif; margin:10px;">About this project</h1>
+
+<h2 style="color:#D9534F; font-family: 'Karla', sans-serif; margin:2px;">Technology Used</h2>
 <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
 <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
 <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
 <img src="https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi" alt="Raspberry Pi">
 <img src="https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
 
-<h2 style="color:#D9534F;">Issue</h2>
-<p style="color:#FFAD60; font-weight: bold;">True randomness is hard to generate using computers alone. We are hoping to explore
+<div class="container1" style="background-color:#FFF4C6; padding: 10x 30% 10px 30px; border: none; border-radius: 6px;">
+<div class="inspiration">
+    <img src="https://cdn.wccftech.com/wp-content/uploads/2017/11/cloudflare-lava-lamps.jpg" alt="Cloudflare lava lamp wall" style="width:600px">
+</div>
+        
+<h2 style="color:#D9534F; font-family: 'Karla', sans-serif; margin:2px;">Inspired by</h2>
+<p style="color:#FFAD60; font-family: 'Nunito', sans-serif; margin:10px;">Cloudflare's lava lamp wall</p>
+
+<h2 style="color:#D9534F; font-family: 'Karla', sans-serif; margin:2px;">Issue</h2>
+<p style="color:#FFAD60; font-family: 'Nunito', sans-serif;  margin:10px;">True randomness is hard to generate using computers alone. We are hoping to explore
 more ways to generate elements randomly to extend security.</p>
 
-<h2 style="color:#D9534F;">Function</h2>
-<p style="color:#FFAD60; font-weight: bold;">Our program explores a potential way to generate continuous
+<h2 style="color:#D9534F; font-family: 'Karla', sans-serif;  margin:2px;">Function</h2>
+<p style="color:#FFAD60; font-family: 'Nunito', sans-serif;  margin:10px;">Our program explores a potential way to generate continuous
     sources for new cryptographic seed data on a large scale.</p>
 
-<h2 style="color:#D9534F;">Locale</h2>
-<p style="color:#FFAD60; font-weight: bold;">Our initial project aim was to set up a Raspberry Pi containing a [REDACTED] hosted server. The aforementioned Raspberry Pi would
+<h2 style="color:#D9534F; font-family: 'Karla', sans-serif; margin:2px;">Locale</h2>
+<p style="color:#FFAD60; font-family: 'Nunito', sans-serif; margin:10px;">Our initial project aim was to set up a Raspberry Pi containing a [REDACTED] hosted server. The aforementioned Raspberry Pi would
 be connected to a livestream of Sydney Harbour and would take a photo of the sky from that livestream.
 Revision of our project goal now includes extended functionality to upload a photo which will generate a cryptographic key.</p>
+</div>
+</div>
 </div>
 
 </body>
