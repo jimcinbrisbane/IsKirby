@@ -11,10 +11,10 @@ def get_path(file:str):
     return str(str(BASE_DIR) + "/image_upload/" + file)
 
 def check_upload_file(file):
-          fp = file
-          filename = fp.filename
-          db_upload_path = secure_filename(filename)
-          fp.save(str(BASE_DIR) + "/image_upload/" + db_upload_path )
+    fp = file
+    filename = fp.filename
+    db_upload_path = secure_filename(filename)
+    fp.save(str(BASE_DIR) + "/image_upload/" + db_upload_path )
 
 def get_rgb_value(image_path): 
     img = cv2.imread(image_path, cv2.IMREAD_COLOR)
