@@ -25,7 +25,7 @@ class CipherAES:
         data = cipher.decrypt_and_verify(ciphertext, tag)
         return data
 
-    def updateMessage(msg: bytes)
+    def updateMessage(self, msg: bytes):
         self.plaintext_msg = msg
 
 
