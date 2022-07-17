@@ -3,20 +3,6 @@ from helper import check_upload_file, get_rgb_value, get_path, string_key
 from hashing import *
 
 app = Flask(__name__)
-from helper import CipherAES
-import cv2
-import numpy as np
-import random 
-#image location, file location
-def toRGB(inimg): 
-    img = cv2.imread(inimg, cv2.IMREAD_COLOR)
-    np.savetxt('foo.txt', img.reshape((3,-1)), fmt="%s", header=str(img.shape))
-    
-def string_key():
-    with open('foo.txt') as f:
-        lines = f.readlines()
-
-    return str(lines)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
