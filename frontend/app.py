@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-from helper import check_upload_file, get_rgb_value, get_path, CipherAES
+from helper import check_upload_file, get_rgb_value, get_path, string_key
+from hashing import *
 
 app = Flask(__name__)
 from helper import CipherAES
@@ -22,8 +23,8 @@ def index():
     if request.method == 'POST':
         file = request.files["fileToUpload"]
         check_upload_file(file)
-        old_key = get_rgb_value(get_path(file.filename))
-        key = CipherAES.get_hash_sha512(old_key)
+        key = get_rgb_value(get_path(file.filename))
+        key = get_hash_sha512(string_key())
         return render_template('key.html', key = key)
     elif request.method == 'GET':
         return render_template('index.html')
