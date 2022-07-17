@@ -1,8 +1,9 @@
 import cv2
+import numpy as np
 from werkzeug.utils import secure_filename
 from pathlib import Path
 from Crypto.Cipher import AES
-import hashlib
+
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -17,7 +18,8 @@ def check_upload_file(file):
 
 def get_rgb_value(image_path): 
     img = cv2.imread(image_path, cv2.IMREAD_COLOR)
-    return img
+    np.array2string(img)
+    np.savetxt("foo.txt", img.reshape((3,-1)), fmt="%s")
 
 def string_key():
     with open('foo.txt') as f:
@@ -43,21 +45,4 @@ class CipherAES:
     def updateMessage(self, msg:bytes):
         self.plaintext_msg = msg.encode()
     
-    @staticmethod
-    def get_hash_md5(text:str) -> str:
-        return hashlib.md5(text.encode('utf-8')).hexdigest().encode()
-    
-    @staticmethod
-    def get_hash_sha512(text:str) -> str:
-        return hashlib.sha512(text.encode('utf-8')).hexdigest()
-
-    @staticmethod
-    def hash_file(filename):
-        h  = hashlib.sha256()
-        b  = bytearray(128*1024)
-        mv = memoryview(b)
-        with open(filename, 'rb', buffering=0) as f:
-            for n in iter(lambda : f.readinto(mv), 0):
-                h.update(mv[:n])
-        return h.hexdigest()
 
